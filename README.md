@@ -47,13 +47,17 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - Access sonarqube on port PUBLIC_IP:9000
 - click login and user username:admin and password:admin
 - create new project and provide any random name. Then click setup
-- Proivde name for token and generate token, select Java and then Maven.
+- Proivde name for token and generate token, select **`Java`** and then **`Maven`**.
 - Copy generated command and save token in a secure location.
-- Modify existing pipeline job to add the code snippet below
+- from Maven server, navigate to directory with source code for the sonarqube and nexus
+```bash
+cd /maven-sonarqube-nexus-project/practice-mvn-nexus-sonar/JavaWebApp
+```
+- Run command generated in previous step in maven server
    
 
 
-## Install Nexus Rrqubeepository Manager
+## Install Nexus Repository Manager
 - create ec2 intsnace, select linux2 OS, intance type: t2.medium and get userdata from link below. 
 - open port 8081 on secuirty group
 - User data (Copy the following user data) from [here](https://github.com/awanmbandi/maven-nexus-project-eagles-batch/blob/maven-nexus-install/nexus-install.sh)
@@ -151,7 +155,9 @@ Publishing artifact to Nexus snapshot and release repo using maven.
 - commit changes and push to repo
 - pull changes from within maven server
 5. copy settings.xml from within maven server into .m2 directory 
-- mv settings.xml ~/.m2
+```bash
+ mv ~/maven-sonarqube-nexus-project/settings.xml ~/.m2
+```
 
 6. Run the following `maven`/`mvn` command to deploy jar package to a remote repo.
    - `mvn deploy`     (done in an integration or release environment, copies the final package to the remote/SNAPSHOT repository 
