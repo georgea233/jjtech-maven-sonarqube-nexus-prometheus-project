@@ -37,19 +37,14 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
 6. Enter the following to set Java 8 as the default runtime on your EC2 instance.
 
     ```
-    sudo /usr/sbin/alternatives --config java
-    ```
+    sudo /usr/sbin/alternatives --config java    ```
 - When prompted, enter the number `4` for Java 11.
 
 5. Enter the following to set Java 8 as the default compiler on your EC2 instance.
 
     ```
     sudo /usr/sbin/alternatives --config javac
-    ```
-- When prompted, enter the number `2` for Javac maven compiler.
-- Make sure to review this config if `mvn compile` breaks
-
-6. Verify your maven version
+    ```- W6. Verify your maven version
     ```
     mvn -v
     ```
@@ -64,7 +59,6 @@ sudo yum install git -y
     mkdir ~/.m2
     ```
 
-8. Create the Settings file inside of the `~/.m2` directory
     ```
     cd ~/.m2/
     mv demo/settings.xml ~/.m2/
